@@ -62,7 +62,7 @@ class ASC_IP():
         self.addToHistory(victim)
 
 
-    def admit(self,obj):
+    def insert(self,obj):
         if self.judge(obj):
             obj.admit=True
             obj.hit=False
@@ -71,6 +71,10 @@ class ASC_IP():
             obj.admit=False
             obj.hit=False
             self.cache.pushFirst(obj.o_block,obj) #insert to LRU
+
+    
+    def admit(self,obj):
+        return self.judge(obj)
 
 
     def requests(self,o_block,o_size):
@@ -85,7 +89,12 @@ class ASC_IP():
             while(o_size>self.cache_size-self.cache.cached_count):
                 self.evict()
 
-            self.admit(curr_obj)
+            if self.admit(curr_obj):
+                self.insert(curr_obj)
+            else:
+                self.cache.pushFirst(curr_obj.o_block,curr_obj)#尾端插入
+                self.evict() #尾端驅逐
+                #相當於沒有admit
         
             
 

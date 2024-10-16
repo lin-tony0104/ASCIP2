@@ -76,8 +76,6 @@ if __name__ == '__main__':
     
     #-----------------------------------------
 
-
-
     with open(trace_file, 'r') as f:
         for line in f:
             temp=line.split()
@@ -100,8 +98,6 @@ if __name__ == '__main__':
             misses = requests - hits
 
 
-            # print("hit_rate:",round(100 * hits / requests, 2),"  ",requests,"/",request_num)
-
-
+    print(selected_info)
        # print(alg.debug)
 
