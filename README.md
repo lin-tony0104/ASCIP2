@@ -10,6 +10,8 @@
 - 修改主要都在lib/ASC_IP.py
 - ASC_IP改的都是debug資訊。
 
-trace下載網址:
+#原始ASC_IP_LRU
+
+trace下載網址:https://drive.google.com/file/d/17lv8Zd6DG1TyBdJw1WlGV25heeicDuYp/view?usp=sharing
 
 trace位置 "D:/all_Trace/ASC-IP/wiki2018"
